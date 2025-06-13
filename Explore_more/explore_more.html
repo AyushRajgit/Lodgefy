@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lodgefy - Find the Best Hostels and PGs</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=location_on" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="explore_more.css">
     <style>
-        /* Global Styles */
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Old Standard TT", serif;
             background-color: #fafafaf4;
             color: #333;
             margin: 0;
@@ -18,17 +20,17 @@
             overflow-x: hidden;
         }
 
-        /* Header */
+       
         .header {
-            padding: 30px;
-            background: linear-gradient(135deg, #065dba, #1c1ca0);
+            padding: 5px;
+            background: linear-gradient(135deg, #742605, #050567);
             color: #ffffff;
             text-align: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .header h1 {
-            font-family: 'Georgia', serif;
+            font-family: "Old Standard TT", serif;
             font-size: 3rem;
             margin: 0;
         }
@@ -37,7 +39,10 @@
             font-size: 1.2rem;
             opacity: 0.9;
         }
-
+        .header img{
+            height: 74px;
+            border-radius: 10px;
+        }
         /* Listings */
         .listing {
             margin-bottom: 30px;
@@ -53,12 +58,12 @@
             border: none;
             border-radius: 12px;
             overflow: hidden;
-            background-color: #ffffff;
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #e78c65, #9191eb);
+            box-shadow: 1px 600px 150px rgba(207, 87, 87, 0.1);
         }
 
         .card img {
-            border-bottom: 4px solid #00457c;
+            border-bottom: 4px solid #031523;
             height: 220px;
             object-fit: cover;
         }
@@ -69,21 +74,22 @@
         }
 
         .card-title {
-            font-family: 'Georgia', serif;
+            font-family: "Old Standard TT", serif;
             font-size: 1.6rem;
-            color: #2e35bedb;
+            color: #2c0101db;
             margin-bottom: 10px;
-            font-weight: 600;
+            font-weight: 1000;
         }
 
         .card-text {
-            font-size: 1rem;
-            color: #555;
+            font-size: 1.2rem;
+            font-family: "Old Standard TT", serif;
+            color: #120f0f;
             margin-bottom: 8px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #065dba, #1c1ca0);
+            background: linear-gradient(135deg, #742605, #050567);
             border: none;
             font-weight: 500;
             padding: 8px 20px;
@@ -94,32 +100,32 @@
 
         .btn-primary:hover {
             background-color: #005c91;
-            box-shadow: 0 6px 15px rgba(0, 91, 145, 0.3);
+            box-shadow: 0 60px 150px rgba(0, 91, 145, 0.3);
         }
 
         /* Filters */
         .filter-bar {
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #742605, #050567);
             border-radius: 12px;
             padding: 15px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 600px 300px rgba(120, 5, 5, 0.08);
             margin-bottom: 25px;
         }
 
         .filter-bar input,
         .filter-bar select {
             border-radius: 6px;
-            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 100px 400px rgba(176, 26, 26, 0.1);
         }
 
         .filter-bar button {
-            box-shadow: 0 4px 12px rgba(0, 123, 191, 0.3);
+            background: linear-gradient(135deg, #742605, #050567);
         }
 
         /* Map Modal */
         .modal-header {
-            background-color: #00457c;
-            color: white;
+            background: linear-gradient(135deg, #742605, #050567);
+            color: rgb(219, 191, 12);
             border-top-left-radius: 6px;
             border-top-right-radius: 6px;
         }
@@ -130,7 +136,7 @@
 
         /* Footer */
         .footer {
-            background-color: rgb(30, 30, 30);
+            background: linear-gradient(135deg, #742605, #050567);
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -144,13 +150,13 @@
         }
 
         .footer p a {
-            color: #007bbf;
+            background: linear-gradient(135deg, #742605, #050567);
             text-decoration: none;
         }
 
         .footer p a:hover {
             text-decoration: underline;
-            color: #005c91;
+            background: linear-gradient(135deg, #742605, #050567);
         }
     </style>
 </head>
@@ -159,6 +165,7 @@
 
     <!-- Header -->
     <div class="header">
+        <img src="/Images/Lodgefy_Logo.jpg" alt="">
         <h1>Lodgefy</h1>
         <p>Find Comfortable and Affordable Hostels & PGs</p>
     </div>
@@ -166,22 +173,36 @@
     <!-- Search/Filter Bar -->
     <div class="container filter-bar mt-4">
         <div class="row">
-            <div class="col-md-3">
-                <input type="text" class="form-control" id="locationFilter" placeholder="Search by location">
+            
+            <div class="col-md-3" id = "User_Location">
+                <select class="form-control" id="locationFilter">
+                    <option value="">Select Location</option>
+                    <option value="Muradnagar">Muradnagar</option>
+                    <option value="Modinagar">Modinagar</option>
+                    <option value="Ghaziabad">Ghaziabad</option>
+                </select>
             </div>
-            <div class="col-md-3">
-                <input type="number" class="form-control" id="costFilter" placeholder="Max cost">
+
+            <div class="col-md-3" id = "User_Rent">
+                <select class="form-control" id="rentFilter">
+                    <option value="">Select Rent</option>
+                    <option value="4000-4999">Rs.4000-4999</option>
+                    <option value="5000-5999">Rs.5000-5999</option>
+                    <option value="6000-6999">Rs.6000-6999</option>
+                </select>
             </div>
-            <div class="col-md-3">
+
+            <div class="col-md-3" id = "User_Star">
                 <select class="form-control" id="ratingFilter">
                     <option value="">Select rating</option>
-                    <option value="5">5 stars</option>
-                    <option value="4">4 stars</option>
-                    <option value="3">3 stars</option>
-                    <option value="2">2 stars</option>
+                    <option value="5">5 star</option>
+                    <option value="4">4 star</option>
+                    <option value="3">3 star</option>
+                    <option value="2">2 star</option>
                     <option value="1">1 star</option>
                 </select>
             </div>
+
             <div class="col-md-3">
                 <button class="btn btn-primary btn-block" onclick="filterListings()">Apply Filters</button>
             </div>
@@ -193,7 +214,7 @@
         <div class="row" id="listings">
             <!-- Mock Listings (20 Cards) -->
             <!-- Card 1 -->
-            <div class="col-md-4 listing">
+            <div class="col-md-4 listing" data-star = "5" data-Location = "Muradnagar" data-Rent = "4000-4999">
                 <div class="card">
                     <a href="../PG_Details/PG1.html" target="_blank"><img src="../Images/rajni1.jpeg" class="card-img-top" alt="Hostel Image" ></a>
                     <div class="card-body">
@@ -202,12 +223,12 @@
                         <p class="card-text cost">Cost per month: &#8377;6500</p>
                         <p class="card-text rating">Rating: 4.9</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.657708, 77.419172" target="_blank"  class = "btn btn-primary" onclick="showMap('40.7128,-74.0060')">View on Map</a>
+                        <a target="_blank"  class = "btn btn-primary" onclick="showMap('37.7749,-122.4194')">View on Map</a>
                     </div>
                 </div>
             </div>
             <!-- Card 2 -->
-            <div class="col-md-4 listing">
+            <div class="col-md-4 listing" data-star = "5" data-Location = "Muradnagar" data-Rent = "4000-4999">
                 <div class="card">
                     <a href="../PG_Details/PG2.html" target="_blank"><img src="../Images/ss2.jpeg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -221,7 +242,7 @@
                 </div>
             </div>
             <!-- Card 3 -->
-            <div class="col-md-4 listing">
+            <div class="col-md-4 listing" data-star = "4" data-Location = "Muradnagar" data-Rent = "4000-4999">
                 <div class="card">
                     <a href="../PG_Details/PG3.html" target="_blank"><img src="../Images/shiv3.webp" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -230,13 +251,13 @@
                         <p class="card-text cost">Cost per month: &#8377;5700</p>
                         <p class="card-text rating">Rating: 4.2</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, 3-Rooms</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('51.5074,-0.1278')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('51.5074,-0.1278')">View on Map</a>
                     </div>
                 </div>
             </div>
 
             <!-- Card 4 -->
-            <div class="col-md-4 listing">
+            <div class="col-md-4 listing" data-star = "3" data-Location = "Muradnagar" data-Rent = "4000-4999">
                 <div class="card">
                     <a href="../PG_Details/PG4.html" target="_blank"><img src="../Images/white4.jpeg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -245,40 +266,41 @@
                         <p class="card-text cost">Cost per month: &#8377;7000</p>
                         <p class="card-text rating">Rating: 4.6</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Gym, Mess, </p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('52.52,13.4050')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('52.52,13.4050')">View on Map</a>
                     </div>
                 </div>
             </div>
 
             <!-- Card 5 -->
-            <div class="col-md-4 listing">
-                <div class="card">
+            <div class="col-md-4 listing" data-star = "3" data-Location = "Muradnagar" data-Rent = "5000-5999">
+                <div class="card" >
                     <a href="../PG_Details/PG5.html" target="_blank"><img src="../Images/royal5.jpg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Royal Hostel & Ladies PG</h5>
-                        <span><i ></i></span><p class="card-text location">Bangalore, Karnataka, India</p>
-                        <p class="card-text cost">Cost per month: &#8377;10,000</p>
+                        <span><i ></i></span><p class="card-text location">Muradnagar, Uttar pradesh</p>
+                        <p class="card-text cost">Cost per month: &#8377;5500</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, A C, Kitchen, Parking, 24-Hr Electricity Available</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('-33.8688,151.2093')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('-33.8688,151.2093')">View on Map</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 listing">
+            <div class="col-md-4 listing" data-star = "3" data-Location = "Muradnagar" data-Rent = "5000-5999">
                 <div class="card">
                     <a href="../PG_Details/PG6.html" target="_blank"><img src="../Images/boy6.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Boys PG Hostel</h5>
-                        <p class="card-text location">Location: Near MIET, Meerut ,Uttar Pradesh, India</p>
-                        <p class="card-text cost">Cost per month: &#8377;5500</p>
+                        <p class="card-text location">Location: Muradnagar,Uttar Pradesh</p>
+                        <p class="card-text cost">Cost per month: &#8377;5800</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, Mess, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing"  data-star = "2" data-Location = "Muradnagar" data-Rent = "5000-5999">
                 <div class="card">
                     <a href="../PG_Details/PG7.html" target="_blank"><img src="../Images/kalpana-residency-girls.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -287,11 +309,12 @@
                         <p class="card-text cost">Cost per month: &#8377;8000</p>
                         <p class="card-text rating">Rating: 4.6</p>
                         <p class="card-text">Facilities: Wi-Fi, Extra Mess, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "2" data-Location = "Muradnagar" data-Rent = "6000-6999">
                 <div class="card">
                     <a href="../PG_Details/PG8.html" target="_blank"><img src="../Images/shiva-hostel-and-pg7.jpg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -300,11 +323,12 @@
                         <p class="card-text cost">Cost per month: &#8377;5300</p>
                         <p class="card-text rating">Rating: 4.1</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Air Conditioner, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "1" data-Location = "Muradnagar" data-Rent = "6000-6999">
                 <div class="card">
                     <a href="../PG_Details/PG9.html" target="_blank"><img src="../Images/ishwar-pg-and-guest-house8.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -313,11 +337,12 @@
                         <p class="card-text cost">Cost per month: &#8377;6700</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Mess, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "1" data-Location = "Muradnagar" data-Rent = "6000-6999">
                 <div class="card">
                     <a href="../PG_Details/PG10.html" target="_blank"><img src="../Images/memory-boys-pg9.webp" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -326,11 +351,12 @@
                         <p class="card-text cost">Cost per month: &#8377;4500</p>
                         <p class="card-text rating">Rating: 4.7</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Cooler-Facility-Available, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "5" data-Location = "Modinagar" data-Rent = "4000-4999">
                 <div class="card">
                     <a href="../PG_Details/PG11.html" target="_blank"><img src="../Images/sunshine.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -339,11 +365,12 @@
                         <p class="card-text cost">Cost per month: &#8377;11,000</p>
                         <p class="card-text rating">Rating: 4.9</p>
                         <p class="card-text">Facilities: Wi-Fi, Air conditioning Rooms, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "5" data-Location = "Modinagar" data-Rent = "4000-4999">
                 <div class="card">
                     <a href="../PG_Details/PG12.html" target="_blank"><img src="../Images/diya-womens-pg-hostel.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -352,11 +379,12 @@
                         <p class="card-text cost">Cost per month: &#8377;8999</p>
                         <p class="card-text rating">Rating: 4.7</p>
                         <p class="card-text">Facilities: 3BHK, Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "4" data-Location = "Modinagar" data-Rent = "4000-4999">
                 <div class="card">
                     <a href="../PG_Details/PG13.html" target="_blank"><img src="../Images/Krishna Boys Hostel.jpeg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -365,11 +393,12 @@
                         <p class="card-text cost">Cost per month: &#8377;5000</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "3" data-Location = "Modinagar" data-Rent = "4000-4999">
                 <div class="card">
                     <a href="../PG_Details/PG14.html" target="_blank"><img src="../Images/sanskar-hostels-and-mess-hostels.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
@@ -378,216 +407,230 @@
                         <p class="card-text cost">Cost per month: &#8377;7000</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, MESS Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing"  data-star = "3" data-Location = "Modinagar" data-Rent = "5000-5999">
                 <div class="card">
-                    <a href="../PG_Details/PG14.html" target="_blank"><img src="../Images/smarts-girls-pg-.avif" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG15.html" target="_blank"><img src="../Images/smarts-girls-pg-.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Smart's Girls PG</h5>
                         <p class="card-text location">Location: Lajpat Nagar, Hissar, Uttar Pradesh, India</p>
                         <p class="card-text cost">Cost per month: &#8377;5999</p>
                         <p class="card-text rating">Rating: 4.9</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing"  data-star = "3" data-Location = "Modinagar" data-Rent = "5000-5999">
                 <div class="card">
-                    <a href="../PG_Details/PG15.html" target="_blank"><img src="../Images/PG12.webp" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG16.html" target="_blank"><img src="../Images/PG12.webp" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
-                        <h5 class="card-title">Deepanshu PG And Mess</h5>
+                        <h5 class="card-title">Zimbo PGs</h5>
                         <p class="card-text location">Location: Raj Nagar Extension, Ghaziabad, India</p>
                         <p class="card-text cost">Cost per month: &#8377;5500</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: All Modern Facility, Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "2" data-Location = "Modinagar" data-Rent = "5000-5999">
                 <div class="card">
-                    <a href="../PG_Details/PG16.html" target="_blank"><img src="../Images/PG13.jpeg" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG17.html" target="_blank"><img src="../Images/PG13.jpeg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Modi PG And Hostel</h5>
                         <p class="card-text location">Location: Ahemdabad, Gujarat, India</p>
                         <p class="card-text cost">Cost per month: &#8377;12,000</p>
                         <p class="card-text rating">Rating: 4.9</p>
                         <p class="card-text">Facilities: Wi-Fi , AC, Attach Bathroom, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            <div class="col-md-4 listing" data-star = "2" data-Location = "Modinagar" data-Rent = "6000-6999">
                 <div class="card">
-                    <a href="../PG_Details/PG17.html" target="_blank"><img src="../Images/Sri Durga Women's PG And Hostel.avif" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG18.html" target="_blank"><img src="../Images/Sri Durga Women's PG And Hostel.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Sri Durga Women's PG And Hostel</h5>
                         <p class="card-text location">Location: Hyderabad, India</p>
                         <p class="card-text cost">Cost per month: &#8377;10,000</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking, All Modern Facility</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "1" data-Location = "Modinagar" data-Rent = "6000-6999">
                 <div class="card">
-                    <a href="../PG_Details/PG18.html" target="_blank"><img src="../Images/GURUKUL PG.jpg" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG19.html" target="_blank"><img src="../Images/GURUKUL PG.jpg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">GURUKUL PG</h5>
                         <p class="card-text location">Location: Uttam Nagar, Delhi, India</p>
                         <p class="card-text cost">Cost per month: &#8377;6999</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "1" data-Location = "Modinagar" data-Rent = "6000-6999">
                 <div class="card">
-                    <a href="../PG_Details/PG19.html" target="_blank"><img src="../Images/Govindam Girls PG Hostel.jpg " class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG20.html" target="_blank"><img src="../Images/Govindam Girls PG Hostel.jpg " class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Govindam Girls PG Hostel</h5>
                         <p class="card-text location">Location: Jaipur, Rajasthan India</p>
                         <p class="card-text cost">Cost per month: &#8377;6799</p>
                         <p class="card-text rating">Rating: 4.5</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 listing">
+            <div class="col-md-4 listing" data-star = "5" data-Location = "Ghaziabad" data-Rent = "4000-4999">
                 <div class="card">
-                    <a href="../PG_Details/PG20.html" target="_blank"><img src="../Images/Shri Ganesha PG For Gents.avif " class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG21.html" target="_blank"><img src="../Images/Shri Ganesha PG For Gents.avif " class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Shri Ganesha PG For Gents</h5>
                         <p class="card-text location">Location: Bangalore, Karnataka, India</p>
                         <p class="card-text cost">Cost per month: &#8377;5999</p>
                         <p class="card-text rating">Rating: 4.1</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+
+            <div class="col-md-4 listing" data-star = "5" data-Location = "Ghaziabad" data-Rent = "4000-4999">
                 <div class="card">
-                    <a href="../PG_Details/PG21.html" target="_blank"><img src="../Images/DAZZLE PG.jpg" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG22.html" target="_blank"><img src="../Images/DAZZLE PG.jpg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">DAZZLE PG</h5>
                         <p class="card-text location">Location: Bangalore, Karnataka, India</p>
                         <p class="card-text cost">Cost per month: &#8377;7999</p>
                         <p class="card-text rating">Rating: 4.8</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            
+            <div class="col-md-4 listing" data-star = "4" data-Location = "Ghaziabad" data-Rent = "4000-4999">
                 <div class="card">
-                    <a href="../PG_Details/PG22.html" target="_blank"><img src="../Images/ITAS PG.jpeg" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG23.html" target="_blank"><img src="../Images/ITAS PG.jpeg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">ITAS PG</h5>
                         <p class="card-text location">Location: Bangalore, Karnataka, India</p>
                         <p class="card-text cost">Cost per month: &#8377;12,999</p>
                         <p class="card-text rating">Rating: 4.4</p>
                         <p class="card-text">Facilities: Wi-Fi, AC Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            
+            <div class="col-md-4 listing" data-star = "3" data-Location = "Ghaziabad" data-Rent = "4000-4999">
                 <div class="card">
-                    <a href="../PG_Details/PG23.html" target="_blank"><img src="../Images/STR Ladies PG.avif" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG24.html" target="_blank"><img src="../Images/STR Ladies PG.avif" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">STR Ladies PG</h5>
                         <p class="card-text location">Location: Bangalore, Karnataka, India</p>
                         <p class="card-text cost">Cost per month: &#8377;9999</p>
                         <p class="card-text rating">Rating: 4.1</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            
+            <div class="col-md-4 listing" data-star = "3" data-Location = "Ghaziabad" data-Rent = "5000-5999">
                 <div class="card">
-                    <a href="../PG_Details/PG24.html" target="_blank"><img src="../Images/Jeeva Ladies Hostel.avif " class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG25.html" target="_blank"><img src="../Images/Jeeva Ladies Hostel.avif " class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Jeeva Ladies Hostel</h5>
                         <p class="card-text location">Location: Trichy, Tamil Nadu, India</p>
                         <p class="card-text cost">Cost per month: &#8377;6700</p>
                         <p class="card-text rating">Rating: 4.6</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            
+            <div class="col-md-4 listing" data-star = "3" data-Location = "Ghaziabad" data-Rent = "5000-5999">
                 <div class="card">
-                    <a href="../PG_Details/PG25.html" target="_blank"><img src="../Images/Vetri Boys Hostel.webp " class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG26.html" target="_blank"><img src="../Images/Vetri Boys Hostel.webp " class="card-img-top" alt="Hostel Image"></a>
                     <div class = "card-body">
                         <h5 class="card-title">Vetri Boys Hostel</h5>
                         <p class="card-text location">Location: Trichy, Tamil Nadu, India</p>
                         <p class="card-text cost">Cost per month: &#8377;6899</p>
                         <p class="card-text rating">Rating: 4.2</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            
+            <div class="col-md-4 listing" data-star = "2" data-Location = "Ghaziabad" data-Rent = "5000-5999">
                 <div class="card">
-                    <a href="../PG_Details/PG26.html" target="_blank"><img src="../Images/OM Hostel.jpeg" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG27.html" target="_blank"><img src="../Images/OM Hostel.jpeg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">OM Hostel</h5>
                         <p class="card-text location">Location: GandhiNagar, Gujarat, India</p>
                         <p class="card-text cost">Cost per month: &#8377;10,999</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, All Facility, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            
+            <div class="col-md-4 listing" data-star = "2" data-Location = "Ghaziabad" data-Rent = "6000-6999">
                 <div class="card">
-                    <a href="../PG_Details/PG27.html" target="_blank"><img src="../Images/Welcome Hostel And PG.jpeg " class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG28.html" target="_blank"><img src="../Images/Welcome Hostel And PG.jpeg " class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Welcome Hostel And PG</h5>
                         <p class="card-text location">Location: GandhiNagar, Gujarat, India</p>
                         <p class="card-text cost">Cost per month: &#8377;6899</p>
                         <p class="card-text rating">Rating: 4.9</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            
+            <div class="col-md-4 listing" data-star = "1" data-Location = "Ghaziabad" data-Rent = "6000-6999">
                 <div class="card">
-                    <a href="../PG_Details/PG28.html" target="_blank"><img src="../Images/Divine Hostel And PG.jpeg" class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG29.html" target="_blank"><img src="../Images/Divine Hostel And PG.jpeg" class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Divine Hostel And PG</h5>
                         <p class="card-text location">Location: GandhiNagar, Gujarat, India</p>
                         <p class="card-text cost">Cost per month: &#8377;8999</p>
                         <p class="card-text rating">Rating: 4.7</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('28.572845, 77.359200')">View on Map</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 listing">
+            
+            <div class="col-md-4 listing" data-star = "1" data-Location = "Ghaziabad" data-Rent = "6000-6999">
                 <div class="card">
-                    <a href="../PG_Details/PG29.html" target="_blank"><img src="../Images/Shivam Hostel And PG.jpg " class="card-img-top" alt="Hostel Image"></a>
+                    <a href="../PG_Details/PG30.html" target="_blank"><img src="../Images/Shivam Hostel And PG.jpg " class="card-img-top" alt="Hostel Image"></a>
                     <div class="card-body">
                         <h5 class="card-title">Shivam Hostel And PG</h5>
                         <p class="card-text location">Location: GandhiNagar, Gujarat, India</p>
                         <p class="card-text cost">Cost per month: &#8377;5500</p>
                         <p class="card-text rating">Rating: 4.3</p>
                         <p class="card-text">Facilities: Wi-Fi, Laundry, Kitchen, Parking</p>
-                        <a href="https://www.google.com/maps?q=28.635892, 77.353320" target="_blank" class="btn btn-primary" onclick="showMap('48.8566,2.3522')">View on Map</a>
+                        <a class="btn btn-primary" onclick="showMap('28.688887, 77.433335')">View on Map</a>
                     </div>
                 </div>
             </div>
@@ -595,24 +638,6 @@
 
 
 
-        </div>
-    </div>
-
-    <!-- Map Modal -->
-    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="mapModalLabel">Location Map</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div id="map" style="height: 400px;"></div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -626,30 +651,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-    <script>
-        function showMap(latLng) {
-            const [latitude, longitude] = latLng.split(',').map(Number);
-
-            if (!window.map) {
-                window.map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 15,
-                    center: { lat: latitude, lng: longitude }
-                });
-            } else {
-                window.map.setCenter({ lat: latitude, lng: longitude });
-                window.map.setZoom(15);
-            }
-
-            window.map.markers?.forEach(marker => marker.setMap(null));
-            window.map.markers = [];
-
-            const marker = new google.maps.Marker({
-                position: { lat: latitude, lng: longitude },
-                map: window.map,
-            });
-            window.map.markers.push(marker);
-        }
-    </script>
+      
+    <script src="Location_GM.js"></script>
+    <script src="Rating_Filter.js"></script>
 </body>
 
 </html>
