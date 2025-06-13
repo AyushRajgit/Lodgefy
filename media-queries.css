@@ -1,60 +1,167 @@
+/* ========== Base (Desktop - above 1024px) ========== */
+/* No media query needed for default styling */
+
+
+/* ========== Large Tablets / Small Laptops (max-width: 1024px) ========== */
 @media screen and (max-width: 1024px) {
     html {
         font-size: 63%;
     }
 
-
-    header .Header-Left .Navigation-bar {
-        display: none;
-    }
+    header .Header-Left .Navigation-bar,
     header .Header-Right a {
         display: none;
     }
+
     header .Header-Right .menu-bar i {
         display: block;
     }
 
-
-
     #Home-Page .Home-image .Home-text h1 {
         font-size: 5rem;
-        margin-left: 40vw;
-        
+        margin-left: 0;
+        text-align: center;
     }
-    
+
     #Home-Page .Home-image .Home-text h2 {
         font-size: 3.6rem;
-        margin-left: 14vw;
+        margin-left: 0;
+        text-align: center;
     }
 
     #Home-Page .Home-image .Home-text p {
-        font-weight: 600;
         font-size: 1.5rem;
-        margin-left: 25vw;
+        font-weight: 600;
+        margin-left: 0;
+        text-align: center;
     }
-
-
-
 
     #con-section .contact-us {
         flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
     }
 
     #convenience .video {
         width: 100%;
         height: 40vh;
-        overflow: hidden;
-        background: red;
         border-radius: 1.5rem;
+        overflow: hidden;
     }
-
-
 
     #property .de-box {
         display: flex;
         flex-direction: column;
         width: 95%;
         justify-content: center;
+        align-items: center;
+        gap: 2rem;
         flex-wrap: wrap;
+        margin: 0 auto;
+    }
+}
+
+
+/* ========== Medium Devices (Tablet - max-width: 768px) ========== */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 60%;
+    }
+
+    header .Header-Left .Navigation-bar,
+    header .Header-Right a {
+        display: none;
+    }
+
+    header .Header-Right .menu-bar i {
+        display: block;
+    }
+
+    #Home-Page .Home-image .Home-text h1 {
+        font-size: 4.5rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #Home-Page .Home-image .Home-text h2 {
+        font-size: 3.2rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #Home-Page .Home-image .Home-text p {
+        font-size: 1.5rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #con-section .contact-us {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #convenience .video {
+        height: 35vh;
+        border-radius: 1.2rem;
+    }
+
+    #property .de-box {
+        flex-direction: column;
+        width: 90%;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+
+/* ========== Small Devices (Mobile - max-width: 480px) ========== */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 55%;
+    }
+
+    header .Header-Left .Navigation-bar,
+    header .Header-Right a {
+        display: none;
+    }
+
+    header .Header-Right .menu-bar i {
+        display: block;
+    }
+
+    #Home-Page .Home-image .Home-text h1 {
+        font-size: 4rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #Home-Page .Home-image .Home-text h2 {
+        font-size: 3rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #Home-Page .Home-image .Home-text p {
+        font-size: 1.4rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #con-section .contact-us {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    #convenience .video {
+        height: 30vh;
+        border-radius: 1rem;
+    }
+
+    #property .de-box {
+        width: 100%;
+        gap: 1rem;
+        align-items: center;
     }
 }
